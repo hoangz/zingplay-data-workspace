@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+  <defs>
+    <linearGradient id="earGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b1a0a"/>
+      <stop offset="100%" stop-color="#c0311a"/>
+    </linearGradient>
+    <linearGradient id="earInner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4500a"/>
+      <stop offset="100%" stop-color="#f0900a"/>
+    </linearGradient>
+    <linearGradient id="headTop" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#c03010"/>
+      <stop offset="50%" stop-color="#e05010"/>
+      <stop offset="100%" stop-color="#f09020"/>
+    </linearGradient>
+    <linearGradient id="headLeft" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a02010"/>
+      <stop offset="100%" stop-color="#6b1208"/>
+    </linearGradient>
+    <linearGradient id="snoutGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e05010"/>
+      <stop offset="100%" stop-color="#f5c020"/>
+    </linearGradient>
+    <linearGradient id="blazeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde8d8"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="chinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde0c8"/>
+      <stop offset="100%" stop-color="#fff8f5" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── Shadow / back of head (dark left side) ── -->
+  <polygon points="85,310 65,120 130,40 195,155 160,255" fill="url(#headLeft)"/>
+
+  <!-- ── Left ear spike (dark crimson) ── -->
+  <polygon points="130,40 175,10 220,90 180,110 155,80" fill="url(#earGrad)"/>
+
+  <!-- ── Inner ear highlight ── -->
+  <polygon points="158,52 192,28 215,82 185,95" fill="url(#earInner)" opacity="0.9"/>
+
+  <!-- ── Right forehead / top of head (orange) ── -->
+  <polygon points="175,10 290,45 280,130 220,90" fill="url(#headTop)"/>
+
+  <!-- ── Main face block (orange-red) ── -->
+  <polygon points="195,155 220,90 280,130 330,175 300,250 220,270 160,255" fill="url(#headTop)"/>
+
+  <!-- ── Snout ridge line going right ── -->
+  <polygon points="300,175 390,168 420,192 370,210 295,210" fill="url(#snoutGrad)"/>
+
+  <!-- ── Snout tip / lower snout ── -->
+  <polygon points="370,210 420,192 415,225 355,235" fill="#e86010" opacity="0.85"/>
+
+  <!-- ── White face blaze (center) ── -->
+  <polygon points="210,110 250,118 285,200 265,255 225,260 195,220 188,165" fill="url(#blazeGrad)"/>
+
+  <!-- ── Lower jaw / chin (fading white) ── -->
+  <polygon points="220,270 300,250 280,330 240,355 195,320" fill="url(#chinGrad)"/>
+
+  <!-- ── Lower chin spike (dark red) ── -->
+  <polygon points="240,355 300,330 290,370 250,380" fill="#c0311a"/>
+
+  <!-- ── Eye (white with dark pupil) ── -->
+  <ellipse cx="268" cy="148" rx="14" ry="10" fill="white" opacity="0.92"/>
+  <ellipse cx="271" cy="149" rx="7" ry="7" fill="#2c0a05"/>
+  <circle cx="275" cy="145" r="3" fill="white"/>
+
+  <!-- ── Nose ── -->
+  <ellipse cx="416" cy="194" rx="8" ry="5" fill="#6b1208"/>
+
+  <!-- ── Edge highlight on snout ── -->
+  <path d="M300,175 Q360,160 420,192" stroke="#f5c020" stroke-width="3" fill="none" opacity="0.7"/>
+</svg>
