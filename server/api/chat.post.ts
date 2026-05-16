@@ -1,7 +1,23 @@
 import { query } from '@anthropic-ai/claude-agent-sdk'
 import { existsSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
+import { homedir } from 'node:os'
+import { join } from 'node:path'
 import { getClaudeDir, resolveClaudePath } from '../utils/claudeDir'
+
+// Load MCP servers from ~/.claude.json so SDK can spawn them for the agent
+async function loadMcpServers(): Promise<Record<string, unknown>> {
+  try {
+    const path = join(homedir(), '.claude.json')
+    if (!existsSync(path)) return {}
+    const raw = await readFile(path, 'utf-8')
+    const cfg = JSON.parse(raw)
+    return cfg.mcpServers || {}
+  } catch (e) {
+    console.warn('[chat] failed to load mcpServers:', (e as Error).message)
+    return {}
+  }
+}
 
 interface ChatMessage {
   role: 'user' | 'assistant'
@@ -84,10 +100,13 @@ export default defineEventHandler(async (event) => {
     let sessionId = body.sessionId || null
     let resultText = ''
 
+    const mcpServers = await loadMcpServers()
+
     for await (const message of query({
       prompt: lastUserMessage.content,
       options: {
         cwd: body.projectDir && existsSync(body.projectDir) ? body.projectDir : claudeDir,
+        mcpServers: mcpServers as never,
         allowedTools: [
           'Read', 'Write', 'Edit', 'Glob', 'Grep', 'Bash',
           'mcp__bi-tool__run-sql',
