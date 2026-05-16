@@ -88,7 +88,14 @@ export default defineEventHandler(async (event) => {
       prompt: lastUserMessage.content,
       options: {
         cwd: body.projectDir && existsSync(body.projectDir) ? body.projectDir : claudeDir,
-        allowedTools: ['Read', 'Write', 'Edit', 'Glob', 'Grep'],
+        allowedTools: [
+          'Read', 'Write', 'Edit', 'Glob', 'Grep', 'Bash',
+          'mcp__bi-tool__run-sql',
+          'mcp__bi-tool__run-sql-async',
+          'mcp__bi-tool__list-databases',
+          'mcp__bi-tool__list-tables',
+          'mcp__bi-tool__check-export-status',
+        ],
         permissionMode: 'bypassPermissions',
         allowDangerouslySkipPermissions: true,
         maxTurns: 10,
